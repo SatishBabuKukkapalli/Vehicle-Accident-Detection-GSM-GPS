@@ -1,0 +1,16 @@
+#include <SoftwareSerial.h>
+SoftwareSerial gps(4,5);
+SoftwareSerial gsm(9,10);
+
+void setup() {
+  Serial.begin(9600);
+  gps.begin(9600);
+  gsm.begin(9600);
+  Serial.println("Testing GPS and GSM...");
+}
+
+void loop() {
+  if (gps.available()) {
+    Serial.write(gps.read());
+  }
+}
